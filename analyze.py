@@ -4,7 +4,7 @@ import string
 def frequency_analysis(text):
     text = ''.join([char for char in text if char in string.ascii_lowercase])
     freq = Counter(text)
-    sorted_freq = dict(sorted(freq.items(), key=lambda item: item[1], reverse=True))
+    # sorted_freq = dict(sorted(freq.items(), key=lambda item: item[1], reverse=True))
     most_common_char = max(freq, key=freq.get)
     typical_most_common_char = 'e'
     shift = (ord(most_common_char) - ord(typical_most_common_char)) % 26
