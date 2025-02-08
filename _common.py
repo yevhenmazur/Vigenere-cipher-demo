@@ -39,7 +39,7 @@ def register_common_cli_params(parser):
                         help='The key for encryption or decryption')
     
     parser.add_argument('--method', '-m',
-                        choices=["caesers", "vigenere", "kasiski", "analyze"],
+                        choices=["caesers", "vigenere", "kasiski"],
                         help='Path to file with output tetx')
 
     # parser.add_argument('--output', type=str,

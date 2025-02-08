@@ -2,6 +2,7 @@ import sys
 import argparse
 from _common import register_common_cli_params, normalize_text, read_text_from_file, write_text_to_file
 from caesars_cipher import caesar_cipher, caesar_decipher
+from analyze import frequency_analysis
 
 
 if __name__ == '__main__':
@@ -34,8 +35,11 @@ if __name__ == '__main__':
             else:
                 print(plaintext)
 
-    elif args.action:
-        print(f'Виконую дію {args.action}')
+    elif args.action == 'analyze':
+        with open(args.input, 'r', encoding="utf-8") as file:
+            cipher_text = file.read()
+        key = frequency_analysis(cipher_text)
+        print(f'The likely encryption key for the Caesar cipher - {key}')
     elif args.input:
         with open(args.input, 'r', encoding="utf-8") as file:
             input_file_content = file.read()
